@@ -8,7 +8,8 @@ import imutils
 import time
 import dlib
 import cv2
-import os
+import pyttsx3
+import os  # Import the os module
 
 def alarm(msg):
     global alarm_status
@@ -17,15 +18,15 @@ def alarm(msg):
 
     while alarm_status:
         print('Calling alarm 1')
-        s = 'C:\\Program Files (x86)\\espeak\\espeak.exe "' + msg + '"'
-        os.system(s)
+        engine.say(msg)
+        engine.runAndWait()
+        print('Alarm 1 executed')  # Debug message
 
     if alarm_status2:
         print('Calling alarm 2')
-        saying = True
-        s = 'C:\\Program Files (x86)\\espeak\\espeak.exe "' + msg + '"'
-        os.system(s)
-        saying = False
+        engine.say(msg)
+        engine.runAndWait()
+        print('Alarm 2 executed')  # Debug message
 
 
 def eye_aspect_ratio(eye):
@@ -93,6 +94,9 @@ except Exception as e:
 
 time.sleep(1.0)
 
+# Initialize pyttsx3 engine
+engine = pyttsx3.init()
+
 # Load the shape predictor
 current_dir = os.path.dirname(os.path.abspath(__file__))
 predictor_filename = 'shape_predictor_68_face_landmarks.dat'
@@ -145,7 +149,7 @@ while True:
                 if not alarm_status:
                     alarm_status = True
                     t = Thread(target=alarm, args=('DANGER!!!! Wake up sir',))
-                    t.deamon = True
+                    t.daemon = True
                     t.start()
 
                 cv2.putText(frame, "DROWSINESS ALERT!", (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 0, 255), 2)
@@ -162,7 +166,7 @@ while True:
                 if not alarm_status2 and not saying:
                     alarm_status2 = True
                     t = Thread(target=alarm, args=('Take some fresh air sir',))
-                    t.deamon = True
+                    t.daemon = True
                     t.start()
         else:
             COUNTER_YAWN = 0
@@ -181,4 +185,4 @@ while True:
         break
 
 cv2.destroyAllWindows()
-vs.stop()
+vs.stop
