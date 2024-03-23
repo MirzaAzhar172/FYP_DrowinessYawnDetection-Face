@@ -10,6 +10,10 @@ import dlib
 import cv2
 import pyttsx3
 import os  # Import the os module
+from threading import Lock
+
+# Initialize a lock
+engine_lock = Lock()
 
 def alarm(msg):
     global alarm_status
@@ -18,14 +22,16 @@ def alarm(msg):
 
     while alarm_status:
         print('Calling alarm 1')
-        engine.say(msg)
-        engine.runAndWait()
+        with engine_lock:
+            engine.say(msg)
+            engine.runAndWait()
         print('Alarm 1 executed')  # Debug message
 
     if alarm_status2:
         print('Calling alarm 2')
-        engine.say(msg)
-        engine.runAndWait()
+        with engine_lock:
+            engine.say(msg)
+            engine.runAndWait()
         print('Alarm 2 executed')  # Debug message
 
 
