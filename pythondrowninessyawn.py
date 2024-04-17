@@ -154,7 +154,7 @@ while True:
             if COUNTER_EYE >= EYE_AR_CONSEC_FRAMES:
                 if not alarm_status:
                     alarm_status = True
-                    t = Thread(target=alarm, args=('DANGER!!!! Wake up sir',))
+                    t = Thread(target=alarm, args=('DANGER!!!! YOU ARE NOT WELL, WAKE UP!!!',))
                     t.daemon = True
                     t.start()
 
@@ -171,7 +171,7 @@ while True:
             if COUNTER_YAWN >= 3:  # Adjusted consecutive frames for yawning
                 if not alarm_status2 and not saying:
                     alarm_status2 = True
-                    t = Thread(target=alarm, args=('Take some fresh air sir',))
+                    t = Thread(target=alarm, args=('STOP DRIVING!!, You need to take some rest or Fresh Air',))
                     t.daemon = True
                     t.start()
         else:
