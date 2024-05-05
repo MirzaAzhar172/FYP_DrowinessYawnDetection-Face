@@ -1,0 +1,27 @@
+
+Memory updated
+Sure, I'll break it down step by step for you!
+
+-What is Mosquitto MQTT Broker?
+Mosquitto is an open-source message broker that implements the MQTT (Message Queuing Telemetry Transport) protocol. It's commonly used for Internet of Things (IoT) applications to enable communication between devices.
+
+Why Use Port Forwarding?
+-Port forwarding allows you to redirect network traffic from one port on your router to another port on a specific device within your local network. This is useful when you want to access services or devices on your local network from outside your network.
+
+Understanding the Command:
+-netsh interface portproxy add v4tov4: This part of the command tells Windows to add a port proxy rule for IPv4 traffic.
+listenport=1883: This specifies the port on which incoming traffic will be received. In this case, it's set to 1883, which is the default port for MQTT.
+listenaddress=xxx.xxx.xx.xx: 
+-Here, you should replace xxx.xxx.xx.xx with your actual Wireless LAN IP address. This is the IP address of your computer on your local network.
+connectport=1883: 
+-This specifies the port to which the incoming traffic will be forwarded. Again, it's set to 1883 for MQTT.
+connectaddress=127.0.0.1: This is the loopback address, which refers to your own computer. It means that traffic received on the specified listen port will be forwarded to the MQTT broker running on your computer.
+
+Prerequisites:
+-Make sure you have Mosquitto MQTT Broker installed and running on your computer.
+-Know your Wireless LAN IP address. You can find this by opening Command Prompt and typing ipconfig. Look for the IPv4 Address under your Wireless LAN adapter.
+
+Executing the Command:
+-Open Command Prompt as an administrator. You can do this by searching for "cmd" in the Start menu, right-clicking on Command Prompt, and choosing "Run as administrator."
+-Copy and paste the command you provided into Command Prompt and press Enter.
+-After executing the command, traffic coming to your LAN IP on port 1883 will be redirected to the MQTT broker running on your computer, allowing you to access the broker from anywhere within your local network.
