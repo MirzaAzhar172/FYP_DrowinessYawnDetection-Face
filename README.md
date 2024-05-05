@@ -17,6 +17,7 @@ The project includes direct working with the 68 facial landmark detector and als
 The 68 facial landmark detector is a robustly trained efficient detector which detects the points on the human face using which 
 we determine whether the eyes are open or close, & yawning and will triggering alarm by voice out using Espeak.</br></br>
 <center><img src="https://github.com/MirzaAzhar172/FYP_DrowinessYawnDetection-Face/blob/main/mode%20alarm%20off.JPG?raw=true" align="center" height="350"></center>
+<b>The facial landmarks 68 format for face detection <img src="" align="center" height="350"></center>
 <b>The 68-landmark detector data (.dat) file can be found <a href=""> CLICK HERE!</a></B>
 
 <h3>The working of the project</h3>
