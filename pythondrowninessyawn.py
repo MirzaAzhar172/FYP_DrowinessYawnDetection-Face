@@ -1,7 +1,7 @@
 from scipy.spatial import distance as dist
 from imutils.video import VideoStream
 from imutils import face_utils
-from threading import Thread
+from threading import Thread, Lock
 import numpy as np
 import argparse
 import imutils
@@ -9,8 +9,14 @@ import time
 import dlib
 import cv2
 import pyttsx3
-import os  # Import the os module
-from threading import Lock
+import os
+import paho.mqtt.client as mqtt
+
+# Initialize MQTT client
+broker_address = "127.0.0.1"  # Replace with your MQTT broker IP
+port = 1883  # Default MQTT port
+client = mqtt.Client(client_id="PythonClient", protocol=mqtt.MQTTv5)
+client.connect(broker_address, port)
 
 # Initialize a lock
 engine_lock = Lock()
@@ -18,31 +24,28 @@ engine_lock = Lock()
 def alarm(msg):
     global alarm_status
     global alarm_status2
-    global saying
 
     while alarm_status:
-        print('Calling alarm 1')
+        print('Calling - alarm 1')
         with engine_lock:
             engine.say(msg)
             engine.runAndWait()
-        print('Alarm 1 executed')  # Debug message
+        print('WARNING!! 1 - executed')  # Debug message
+        client.publish("alarm_topic", msg)
 
     if alarm_status2:
         print('Calling alarm 2')
         with engine_lock:
             engine.say(msg)
             engine.runAndWait()
-        print('Alarm 2 executed')  # Debug message
-
+        print('WARNING!! 2 executed')  # Debug message
+        client.publish("alarm_topic", msg)
 
 def eye_aspect_ratio(eye):
     A = dist.euclidean(eye[1], eye[5])
     B = dist.euclidean(eye[2], eye[4])
-
     C = dist.euclidean(eye[0], eye[3])
-
     ear = (A + B) / (2.0 * C)
-
     return ear
 
 def final_ear(shape):
@@ -71,9 +74,9 @@ def lip_distance(shape):
     distance = abs(top_mean[1] - low_mean[1])
     return distance
 
+# Parse arguments
 ap = argparse.ArgumentParser()
-ap.add_argument("-w", "--webcam", type=int, default=0,
-                help="index of webcam on system")
+ap.add_argument("-w", "--webcam", type=int, default=0, help="index of webcam on system")
 args = vars(ap.parse_args())
 
 EYE_AR_THRESH = 0.3
@@ -115,7 +118,6 @@ if not os.path.isfile(predictor_path):
 predictor = dlib.shape_predictor(predictor_path)
 
 while True:
-
     frame = vs.read()
     if frame is None:
         print("Error: Unable to read frame from video stream")
@@ -180,9 +182,9 @@ while True:
 
     # Display alarm status
     if alarm_status or alarm_status2:
-        cv2.putText(frame, "ALARM ON", (10, 60), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 0, 255), 2)
+        cv2.putText(frame, "ALARM - YAWN DETECTED", (10, 60), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 0, 255), 2)
     else:
-        cv2.putText(frame, "ALARM OFF", (10, 60), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 255, 0), 2)
+        cv2.putText(frame, "MODE ALARM - OFF", (10, 60), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 255, 0), 2)
 
     cv2.imshow("Frame", frame)
     key = cv2.waitKey(1) & 0xFF
@@ -191,4 +193,4 @@ while True:
         break
 
 cv2.destroyAllWindows()
-vs.stop
+vs.stop()
