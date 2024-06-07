@@ -12,7 +12,7 @@ untuk projek fyp uitm sem6 - Exhibition Bachelor Sains Komputer
 
 # Explaination from this project
 Driver drowsiness detection is a project built using Dlib and OpenCV, Haar Cascade & Espeak with Python as a backend language.
-<h3>Logic of project</h3>
+<h3>Logic/Basic of project</h3>
 The project includes direct working with the 68 facial landmark detector, haar cascade, OpenCV, Espeak, MQTT broker.
 The 68 facial landmark detector is a robustly detecting the points on the human face using which 
 we determine whether the eyes are open or close, & yawning and will triggering alarm by voice out using Espeak.</br></br>
