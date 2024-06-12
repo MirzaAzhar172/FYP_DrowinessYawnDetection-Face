@@ -29,13 +29,15 @@ The 68-landmark detector data (.dat) file can be found <a href="https://github.c
 <img src="https://github.com/MirzaAzhar172/FYP_DrowinessYawnDetection-Face/blob/main/Capture.JPG?raw=true" align="center" height="350">
 <img src="https://github.com/MirzaAzhar172/FYP_DrowinessYawnDetection-Face/blob/main/yawn.JPG?raw=true" align="center" height="350">
 
-## Setups
+## SETTING UP MQTT
 
-Change the threshold values according to your need
+Create MQTT client and broker in python coding for linking with Node-red.
 ```
-EYE_AR_THRESH = 0.3
-EYE_AR_CONSEC_FRAMES = 30
-YAWN_THRESH = 10`	//change this according to the distance from the camera
+# Initialize MQTT client
+broker_address = "127.0.0.1"  # Replace with your MQTT broker IP
+port = 1883  # Default MQTT port
+client = mqtt.Client(client_id="PythonClient", protocol=mqtt.MQTTv5)
+client.connect(broker_address, port)
 ```
 # Using NODE-RED and Slack as transmission data and generate notifications.
 Besides using python with libraries, dependencies and MQTT, I used Node-Red for send alarm status by through MQTT to Slack API.
