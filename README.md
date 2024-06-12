@@ -42,3 +42,14 @@ Besides using python with libraries, dependencies and MQTT, I used Node-Red for 
 <h3>MAP FLOW</h3>
 <li>Python (libraries) -> MQTT -> Node-Red -> Slack API.</ul>
 <p><img src="https://github.com/MirzaAzhar172/FYP_DrowinessYawnDetection-Face/blob/main/drowsiness.JPG?raw=true" align="center" height="350">
+
+<h3>STEP BY STEP - configure localhost to create MQTT.</h3>
+
+<li>1.open  Cmd administrator.</li>
+<li>2.Client = netsh interface portproxy add v4tov4 listenaddress=192.168.140.44 listenport=1883 connectaddress=127.0.0.1 connectport=1883</li>
+<li>3.Server </li>
+- netsh interface portproxy add v4tov4 listenaddress=192.168.140.44 listenport=1883 connectaddress=127.0.0.1 connectport=1883
+- netsh interface portproxy show all.
+<li>5. Open MQTT explorer, linkkan connect address 127.0.0.1 yang dah run dekat Arduino ide untuk link ke MQTT.</li>
+<li>6. Run python coding micro sleep alarm yg link webcam.</li>
+<li>7. Tgk output dekat MQTT explorer, dia akan link terminal python coding yang run tu je MQTT terminal.</li>
