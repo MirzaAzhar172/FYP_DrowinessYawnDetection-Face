@@ -41,7 +41,7 @@ YAWN_THRESH = 10`	//change this according to the distance from the camera
 Besides using python with libraries, dependencies and MQTT, I used Node-Red for send alarm status by through MQTT to Slack API.
 <h3>MAP FLOW</h3>
 <li>Python (libraries) -> MQTT -> Node-Red -> Slack API.</ul>
-<p><img src="https://github.com/MirzaAzhar172/FYP_DrowinessYawnDetection-Face/blob/main/drowsiness.JPG?raw=true" align="center" height="350">
+<p><img src="https://github.com/MirzaAzhar172/FYP_DrowinessYawnDetection-Face/blob/main/flow-node-red%20pics%20MQTT_Slack_MongoDB.JPG?raw=true" align="center" height="350">
 
 <h3>STEP BY STEP - configure localhost to create MQTT.</h3>
 
