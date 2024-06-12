@@ -37,3 +37,8 @@ EYE_AR_THRESH = 0.3
 EYE_AR_CONSEC_FRAMES = 30
 YAWN_THRESH = 10`	//change this according to the distance from the camera
 ```
+# Using NODE-RED and Slack as transmission data and generate notifications.
+Besides using python with libraries, dependencies and MQTT, I used Node-Red for send alarm status by through MQTT to Slack API.
+<h3>MAP FLOW</h3>
+<li>Python (libraries) -> MQTT -> Node-Red -> Slack API.</ul>
+<p><img src="https://github.com/MirzaAzhar172/FYP_DrowinessYawnDetection-Face/blob/main/drowsiness.JPG?raw=true" align="center" height="350">
