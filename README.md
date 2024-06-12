@@ -1,5 +1,5 @@
-# FYP_DrowinessYawnDetection-Face detect using OpenCV, Haar Cascade, Mosquitto Broker MQTT
-untuk projek fyp uitm sem6 - Exhibition Bachelor Sains Komputer
+# FYP - Microsleep Alarm for Driver (using MQTT, Node-Red, Slack API, MongoDB-COMPASS)
+Untuk projek fyp uitm sem6 - Exhibition Bachelor Sains Komputer.
 
 ## Dependencies
 1. Python 3
@@ -10,7 +10,7 @@ untuk projek fyp uitm sem6 - Exhibition Bachelor Sains Komputer
 6. numpy
 7. argparse
 
-# Explaination from this project
+# Explaination/ How to configure from this project:
 Driver drowsiness detection is a project built using Dlib and OpenCV, Haar Cascade & Espeak with Python as a backend language.
 <h3>Fundamental/Guidance of this project</h3>
 The project works with the 68 facial landmark detector, haar cascade, OpenCV, Espeak, MQTT broker, and Node-red map flow.
@@ -31,7 +31,7 @@ The 68-landmark detector data (.dat) file can be found <a href="https://github.c
 
 ## SETTING UP MQTT
 
-Create MQTT client and broker in python coding for linking with Node-red.
+Create MQTT client and broker in Python coding for linking with Node-red.
 ```
 # Initialize MQTT client
 broker_address = "127.0.0.1"  # Replace with your MQTT broker IP
@@ -39,8 +39,8 @@ port = 1883  # Default MQTT port
 client = mqtt.Client(client_id="PythonClient", protocol=mqtt.MQTTv5)
 client.connect(broker_address, port)
 ```
-# Using NODE-RED and Slack as transmission data and generate notifications.
-Besides using python with libraries, dependencies and MQTT, I used Node-Red for send alarm status by through MQTT to Slack API.
+# Using NODE-RED and Slack as transmission data and generating notifications.
+Besides using Python with libraries, dependencies, and MQTT, I used Node-Red to send alarm status through MQTT to Slack API.
 <h3>MAP FLOW</h3>
 <li>Python (libraries) -> MQTT -> Node-Red -> Slack API.</ul>
 <p><img src="https://github.com/MirzaAzhar172/FYP_DrowinessYawnDetection-Face/blob/main/flow-node-red%20pics%20MQTT_Slack_MongoDB.JPG?raw=true" align="center" height="350">
@@ -55,3 +55,5 @@ Besides using python with libraries, dependencies and MQTT, I used Node-Red for 
 <li>5. Open MQTT explorer, linkkan connect address 127.0.0.1 yang dah run dekat Arduino ide untuk link ke MQTT.</li>
 <li>6. Run python coding micro sleep alarm yg link webcam.</li>
 <li>7. Tgk output dekat MQTT explorer, dia akan link terminal python coding yang run tu je MQTT terminal.</li>
+
+# MongoDB-COMPASS as database that store alarm status fr.
