@@ -56,4 +56,7 @@ Besides using Python with libraries, dependencies, and MQTT, I used Node-Red to 
 <li>6. Run python coding micro sleep alarm yg link webcam.</li>
 <li>7. Tgk output dekat MQTT explorer, dia akan link terminal python coding yang run tu je MQTT terminal.</li>
 
-# MongoDB-COMPASS as database that store alarm status fr.
+# MongoDB-COMPASS as database that store alarm status from Node-Red, MQTT and Python.
+<li>Now we are showing Status Alarm when the webcam detect yawn and drowsiness <i>'At the same time showing Timestamp (DataTime_Alert)</i>
+<img src="https://github.com/MirzaAzhar172/FYP_DrowinessYawnDetection-Face/blob/main/Capture.JPG?raw=true" align="center" height="350">
+<img src="https://github.com/MirzaAzhar172/FYP_DrowinessYawnDetection-Face/blob/main/yawn.JPG?raw=true" align="center" height="350">
