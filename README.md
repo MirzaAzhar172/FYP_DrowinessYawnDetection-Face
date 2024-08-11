@@ -46,7 +46,7 @@ Besides using Python with libraries, dependencies, and MQTT, I used Node-Red to 
 <p><img src="https://github.com/MirzaAzhar172/FYP_DrowinessYawnDetection-Face/blob/main/flow-node-red%20pics%20MQTT_Slack_MongoDB.JPG?raw=true" align="center" height="350">
 
 <h3>LOGICAL DESIGN - How it works:</h3>
-<img src="https://github.com/MirzaAzhar172/FYP_DrowinessYawnDetection-Face/blob/main/mongo%20db.JPG?raw=true" align="center" height="350">
+<img src="https://github.com/MirzaAzhar172/FYP_DrowinessYawnDetection-Face/blob/main/logical%20design%20flow.JPG?raw=true" align="center" height="350">
 
 <h3>STEP BY STEP - configure localhost to create MQTT.</h3>
 
