@@ -57,6 +57,7 @@ Besides using Python with libraries, dependencies, and MQTT, I used Node-Red to 
 <li>7. Tgk output dekat MQTT explorer, dia akan link terminal python coding yang run tu je MQTT terminal.</li>
 
 # MongoDB-COMPASS as database that store alarm status from Node-Red, MQTT and Python.
+<h3>NOTIFICATIONS GENERATE FROM NODE-RED TO WARN DRIVER</h3>
 <li>Now we are showing Status Alarm when the webcam detect yawn and drowsiness <i>'At the same time showing Timestamp (DataTime_Alert)</i>
-<img src="https://github.com/MirzaAzhar172/FYP_DrowinessYawnDetection-Face/blob/main/Capture.JPG?raw=true" align="center" height="350">
-<img src="https://github.com/MirzaAzhar172/FYP_DrowinessYawnDetection-Face/blob/main/yawn.JPG?raw=true" align="center" height="350">
+  
+<img src="https://github.com/MirzaAzhar172/FYP_DrowinessYawnDetection-Face/blob/main/mongo%20db.JPG?raw=true" align="center" height="350">
